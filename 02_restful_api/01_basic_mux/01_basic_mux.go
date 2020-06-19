@@ -38,6 +38,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleRequests() {
+	// creates a new instance of a mux router
 	myRouter := mux.NewRouter().StrictSlash(true)
 
 	myRouter.HandleFunc("/", homePage)
