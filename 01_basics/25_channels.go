@@ -15,6 +15,7 @@ func foo(c chan int, someValue int) {
 }
 
 func main() {
+	// create channel
 	fooVal := make(chan int, 10) // buffer for 10 items (same as for loop under i < 10)
 
 	// go foo(fooVal, 5)
