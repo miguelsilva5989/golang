@@ -5,17 +5,8 @@ import (
 	"fmt"
 )
 
-type Location struct {
-	Loc string `xml:"loc"`
-}
-
 type SitemapIndex struct {
-	Locations []Location `xml:"sitemap"` // slice to unmarshal the tag that is under
-}
-
-// to remove the {} in the array of Locations
-func (l Location) String() string {
-	return fmt.Sprint(l.Loc)
+	Locations []string `xml:"sitemap>loc"` // slice to unmarshal the tag that is under
 }
 
 func main() {
