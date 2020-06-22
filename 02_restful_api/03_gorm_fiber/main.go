@@ -26,13 +26,16 @@ func initDatabase() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	defer database.DBConn.Close()
 	fmt.Println("Connection Opened to Database")
+
+	database.DBConn.AutoMigrate(&book.Book{})
+	fmt.Println("Database migrated")
 }
 
 func main() {
 	app := fiber.New()
 	initDatabase()
+	defer database.DBConn.Close()
 
 	setupRoutes(app)
 
